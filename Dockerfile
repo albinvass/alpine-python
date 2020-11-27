@@ -1,6 +1,7 @@
 FROM python:alpine
 RUN apk add --update \
-    sudo
+    sudo \
+    curl
     
 RUN addgroup\
     -g 1000 \
@@ -15,3 +16,4 @@ RUN adduser \
 RUN echo "zuul ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/zuul
 
 USER zuul
+WORKDIR /home/zuul
